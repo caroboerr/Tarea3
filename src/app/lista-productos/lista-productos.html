@@ -1,0 +1,44 @@
+<h2>Lista de Productos</h2>
+
+@if (productos().length === 0) {
+  <div class="empty-state">
+    No hay productos cargados
+  </div>
+} @else {
+
+  <table class="tabla">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Fecha</th>
+        <th>Precio</th>
+        <th>Descuento</th>
+        <th>Precio C/descuento</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (producto of productos(); track producto.id) {
+        <tr>
+          <td>{{ producto.id }}</td>
+          <td>{{ producto.nombre | uppercase}}</td>
+          <td>{{ producto.fecha | date :'dd/MM/yyyy'}}</td>
+          <td style="text-align-last: left;">{{ producto.precio | currency:'$':'symbol':'1.2-2' }}</td>
+          <td>{{ producto.descuento }}%</td>
+           <td>{{producto.precio | descuentoPipe: producto.descuento | currency:'$':'symbol':'1.2-2' }}</td>
+          <td>
+            <button
+              class="btn btn-danger"
+              type="button"
+              (click)="borrar(producto.id)">
+              Borrar
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+}

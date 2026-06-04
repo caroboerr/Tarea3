@@ -1,0 +1,87 @@
+<form
+  [formGroup]="formulario"
+  class="formulario"
+  (ngSubmit)="enviar()">
+
+  <div class="campo">
+    <label>Nombre</label>
+    <input
+      formControlName="nombre"
+      placeholder="Ingrese el nombre">
+      
+    @if ((formulario.get('nombre')?.touched) &&
+         (formulario.get('nombre')?.invalid)) {
+
+      @if (formulario.get('nombre')?.errors?.['required']) {
+        <small>El nombre es obligatorio</small>
+      }
+
+      @if (formulario.get('nombre')?.errors?.['minlength']) {
+        <small>Mínimo 3 caracteres</small>
+      }
+    }
+  </div>
+
+ <div class="campo">
+    <label>Fecha</label>
+    <input type="date"
+      formControlName="fecha"
+      placeholder="Ingrese la fecha">
+      
+    @if ((formulario.get('fecha')?.touched) &&
+         (formulario.get('fecha')?.invalid)) {
+
+      @if (formulario.get('fecha')?.errors?.['required']) {
+        <small>La fecha es obligatoria</small>
+      }
+    }
+  </div>
+
+  <div class="campo">
+    <label>Precio</label>
+
+    <input
+      type="number"
+      formControlName="precio"
+      placeholder="Ingrese el precio">
+
+    @if ((formulario.get('precio')?.touched) &&
+         (formulario.get('precio')?.invalid) &&
+         (formulario.get('precio')?.errors?.['required'])) {
+      <small>El precio es obligatorio</small>
+    }
+  </div>
+
+  <div class="campo">
+    <label>Descuento (%)</label>
+
+    <input
+      type="number"
+      formControlName="descuento"
+      placeholder="Ingrese el descuento">
+
+    @if ((formulario.get('descuento')?.touched) &&
+         (formulario.get('descuento')?.invalid) &&
+         (formulario.get('descuento')?.errors?.['required'])) {
+      <small>El descuento es obligatorio</small>
+    }
+  </div>
+
+  <div class="botones">
+    <button
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="formulario.invalid">
+      Guardar
+    </button>
+
+    <button
+      class="btn btn-secondary"
+      type="button"
+      (click)="cancelar()">
+      Cancelar
+    </button>
+  </div>
+
+  
+</form>

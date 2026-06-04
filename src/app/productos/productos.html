@@ -1,0 +1,19 @@
+<div class="container">
+
+  <header class="page-header">
+    <h1>Administración de Productos</h1>
+  </header>
+
+  <section class="card">
+    <h2>Nuevo Producto</h2>
+    <form-producto  (productoCreado)="agregarProducto($event)"></form-producto>
+  </section>
+
+  <section class="card">
+    <lista-productos 
+        [productos]="listaProductos"
+        (borrarProducto)="borrar($event)">
+    </lista-productos>
+  </section>
+
+</div>
