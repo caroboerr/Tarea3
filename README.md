@@ -104,21 +104,21 @@ Los datos formateados con pipes
 - fecha | date :'dd/MM/yyyy'
 - precio | currency:'$':'symbol':'1.2-2'
 - La columna "Precio C/descuento" utiliza el pipe personalizado descuentoPipe y el pipe | currency:'$':'symbol':'1.2-2'
-
+---
 ![ScreenShot2](public/Pantalla2-IngresoDatosAlta.png) 
 
 Muestra el formulario con datos cargados, listos para ser agregados a la lista de productos.
-
+---
 ![ScreenShot3](public/Pantalla3-DatoAgregado.png) 
 
 Muestra el formulario vacío luego de insertar el producto. 
 En la lista de productos se visualiza el nuevo producto.
-
+---
 ![ScreenShot4](public/Pantalla4-PrevioEliminacion.png) 
 
 Se muestra la lista de productos con 3 productos (los 2 iniciales + el producto creado)
 Es la previa a la eliminacion de 1 registro.
-
+---
 ![ScreenShot5](public/Pantalla5-RegistroBorrado.png) 
 
 Se muestra la lista con todos los registros menos el eliminado.
