@@ -1,20 +1,20 @@
 Tarea 3 - Servicios y Pipes
 
-#Objetivos
+# Objetivos
 Aplicar el concepto de servicio en Angular para manejar datos desde una API (simulada o real).
 Utilizar pipes estándar y personalizados para transformar información antes de presentarla.
 
-##Implementación
+## Implementación
 
-Alta de productos mediante formulario.
-Visualización de productos en una tabla.
-Eliminación de productos.
-Actualización automática de la lista luego de agregar o eliminar registros.
-Formateo de datos utilizando pipes de Angular y pipes personalizados.
+- Alta de productos mediante formulario.
+- Visualización de productos en una tabla.
+- Eliminación de productos.
+- Actualización automática de la lista luego de agregar o eliminar registros.
+- Formateo de datos utilizando pipes de Angular y pipes personalizados.
 
-##Estructura del Proyecto
+## Estructura del Proyecto
 
-###Producto
+### Producto
 
 Se define una interfaz Producto que representa la estructura de los datos administrados por la aplicación.
 
@@ -25,46 +25,46 @@ export interface Producto {
   descuento: number;
 }
 
-###ProductosComponent
+### ProductosComponent
 Es el componente principal encargado de coordinar la aplicación.
 
-Responsabilidades:
+#### Responsabilidades:
 
-Obtener la lista de productos desde el servicio.
-Recibir eventos emitidos por los componentes hijos.
-Agregar y eliminar productos.
-Mantener sincronizada la información mostrada en pantalla.
+- Obtener la lista de productos desde el servicio.
+- Recibir eventos emitidos por los componentes hijos.
+- Agregar y eliminar productos.
+- Mantener sincronizada la información mostrada en pantalla.
 
-###FormProducto
+### FormProducto
 Componente encargado del alta de productos.
 
-Características:
-Emite un evento cuando se registra un nuevo producto.
-Permite cancelar la carga y limpiar el formulario.
+#### Características:
+- Emite un evento cuando se registra un nuevo producto.
+- Permite cancelar la carga y limpiar el formulario.
 
-###ListaProductos
+### ListaProductos
 Componente encargado de mostrar los productos registrados.
 
-Características:
-Recibe la lista mediante un input().
-Utiliza la directiva @for para mostrar las filas de la tabla.
-Emite eventos de eliminación mediante output().
-En la visualizacion de los datos, se utilizan los pipes currency y descuentoPipe para mostrar los datos formateados
+#### Características:
+- Recibe la lista mediante un input().
+- Utiliza la directiva @for para mostrar las filas de la tabla.
+- Emite eventos de eliminación mediante output().
+- En la visualizacion de los datos, se utilizan los pipes currency y descuentoPipe para mostrar los datos formateados
 
-###ProductosService
+### ProductosService
 Servicio responsable de administrar los datos de la aplicación.
 
-Responsabilidades:
+#### Responsabilidades:
 
-Almacenar la lista de productos.
-Agregar nuevos productos.
-Eliminar productos existentes.
-Proveer los datos a los componentes que los requieran.
+- Almacenar la lista de productos.
+- Agregar nuevos productos.
+- Eliminar productos existentes.
+- Proveer los datos a los componentes que los requieran.
 
-###Comunicación entre Componentes
+### Comunicación entre Componentes
 
-Se utiliza input() para enviar información desde ProductosComponent hacia ListaProductos.
-Se utiliza output() para emitir eventos desde los componentes hijos hacia el componente principal.
+- Se utiliza input() para enviar información desde ProductosComponent hacia ListaProductos.
+- Se utiliza output() para emitir eventos desde los componentes hijos hacia el componente principal.
 
 ### Flujo Completo de la Aplicación
 
@@ -93,43 +93,33 @@ Se utiliza output() para emitir eventos desde los componentes hijos hacia el com
                            └──── ───────┘
 
 
-### Responsabilidades
-
-| Componente         | Responsabilidad                                   |
-| ------------------ | ------------------------------------------------- |
-| ProductosComponent | Coordina la aplicación y comunica los componentes |
-| FormProducto       | Captura y valida los datos ingresados             |
-| ListaProductos     | Muestra los productos y notifica acciones         |
-| ProductosService   | Gestiona los datos de la aplicación               |
-
-
 ## Capturas de pantalla
 ### Inicio
 
 ![ScreenShot1](public/Pantalla1-Inicial.png) 
 
-Se visualiza la lista de productos inicial.
+Se visualiza el formulario vacío y la lista de productos inicial.
 Los datos formateados con pipes
 - nombre | uppercase
 - fecha | date :'dd/MM/yyyy'
 - precio | currency:'$':'symbol':'1.2-2'
 - La columna "Precio C/descuento" utiliza el pipe personalizado descuentoPipe y el pipe | currency:'$':'symbol':'1.2-2'
 
-![ScreenShot2](public/Pantalla2-Ingreso datos para alta.png) 
+![ScreenShot2](public/Pantalla2-IngresoDatosAlta.png) 
 
-Muestra el formulario con datos cargados, listo para ser insertados en la tabla.
+Muestra el formulario con datos cargados, listos para ser agregados a la lista de productos.
 
-![ScreenShot3](public/Pantalla3-Dato agregado.png) 
+![ScreenShot3](public/Pantalla3-DatoAgregado.png) 
 
 Muestra el formulario vacío luego de insertar el producto. 
 En la lista de productos se visualiza el nuevo producto.
 
-![ScreenShot4](public/Pantalla4-Previo a elimar registro.png) 
+![ScreenShot4](public/Pantalla4-PrevioEliminacion.png) 
 
 Se muestra la lista de productos con 3 productos (los 2 iniciales + el producto creado)
 Es la previa a la eliminacion de 1 registro.
 
-![ScreenShot5](public/Pantalla5-Registro borrado.png) 
+![ScreenShot5](public/Pantalla5-RegistroBorrado.png) 
 
 Se muestra la lista con todos los registros menos el eliminado.
 
